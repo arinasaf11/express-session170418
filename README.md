@@ -27,9 +27,11 @@ console.log(`Старт процесса: ${process.pid}`);
 ### 3. Добавляем в код соответствующую зависимость `const bodyParser = require('body-parser')` и ее использование в приложении `.use(bodyParser.json())` , `.use(bodyParser.urlencoded({ extended: true }))`
 ![](https://github.com/arinasaf11/express-session170418/blob/master/Screenshot_5.png)
 ### 4. Выполняем `yarn add express-session` для установки компонента Express, отвечающего за обработку сессий
-### 5. Добавляем в код еще одну зависимость `const session = require('express-session')` и ее использование `.use(session({ secret:	'mysecret',	resave:	true,	saveUninitialized:	true }))`. Затем добавляем запись данных сессии в ветку проверки наличия пользователя,
-соответствующую успешной проверке совпадения найденного пользователя и его пароля: `req.session.auth = 'ok';` Добавляем функцию checkAuth промежуточного программного обеспечения (конвейера, middleware) для обработки защищённых маршрутов и для защиты маршрута /users :
-```javacsript
+### 5. Рефакторинг кода  
+Добавляем в код еще одну зависимость `const session = require('express-session')` и ее использование `.use(session({ secret:	'mysecret',	resave:	true,	saveUninitialized:	true }))`. Затем добавляем запись данных сессии в ветку проверки наличия пользователя,
+соответствующую успешной проверке совпадения найденного пользователя и его пароля: `req.session.auth = 'ok';`  
+Добавляем функцию checkAuth промежуточного программного обеспечения (конвейера, middleware) для обработки защищённых маршрутов и для защиты маршрута /users :
+```javacsсript
 const express = require('express');
 const { get } = require('axios');
 const bodyParser = require('body-parser');

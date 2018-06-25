@@ -32,7 +32,7 @@ console.log(`Старт процесса: ${process.pid}`);
 соответствующую успешной проверке совпадения найденного пользователя и его пароля: `req.session.auth = 'ok';`  
 Добавляем функцию checkAuth промежуточного программного обеспечения (конвейера, middleware) для обработки защищённых маршрутов и для защиты маршрута /users.  
 Добавляем маршрут /logout для прекращения сессии.
-```javasсript
+```javascript
 const express = require('express');
 const { get } = require('axios');
 const bodyParser = require('body-parser');
@@ -49,9 +49,7 @@ const checkAuth = (r, res, next) => { //функция checkAuth
 		res.redirect('/login');
 	}
 };
-
 app
-
   .use(bodyParser.json())
   .use(bodyParser.urlencoded({ extended: true }))
   .use(session({	secret:	'mysecret',	resave:	true,	saveUninitialized:	true }))
@@ -81,8 +79,6 @@ app
   .get('/author', r => 
   	r.res.send('<h4 id="author" title="GossJS">Sophia Kramar</h4>')
   )
-
-
   .use(r => r.res.status(404).end('Still not here, sorry!'))
   .use((e, r, res, n) => res.status(500).end(`Error: ${e}`))
   .set('view engine', 'pug')

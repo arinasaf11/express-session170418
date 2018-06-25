@@ -93,4 +93,5 @@ app
 ```
 ### 5. Самостоятельно добавляем в папку views файл login.pug, содержащий шаблон страницы для ввода логина и пароля (если команда `curl -kSL 'https://kodaktor.ru/g/session_pug' -o './views/login.pug'` вызывала ошибку)
 ### 6. Проверяем, чтобы попытка посетить маршрут /users без предварительного залогинивания приводила к перемещению к маршруту /login, после успешного заполнения формы по которому верными логином и паролем повторное посещение маршрута /users будет уже успешным, и так до посещения маршрута /logout или до окончания срока сессии.
-
+![](https://github.com/arinasaf11/express-session170418/blob/master/Screenshot_login.png?raw=true)
+![](https://github.com/arinasaf11/express-session170418/blob/master/Screenshot_users.png?raw=true)
